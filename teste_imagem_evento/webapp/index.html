@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Hello World</title>
+        <script id='sap-ui-bootstrap'
+            src='https://sapui5.hana.ondemand.com/1.104.2/resources/sap-ui-core.js'
+            data-sap-ui-theme='sap_bluecrystal'
+            data-sap-ui-libs='sap.m'>
+        </script>
+        <script>
+            sap.ui.getCore().attachInit(function () {
+            var onPressImage = function(){
+                alert("Hello UI5 World!");
+            };
+            var oImage = new sap.m.Image({
+                    src: "img/UI5_logo.png",
+                    decorative: false,
+                    alt: "SAPUI5 Logo",
+                    press: onPressImage
+                }).placeAt("content");
+            var oImage2 = new sap.m.Image({
+                src: "img/UI5_logo.png",
+                decorative: false,
+                alt: "SAPUI5 Logo",
+                press: function(){
+                    alert("Hello UI5!");
+                }
+                }).placeAt("content");
+            });
+        </script>
+    </head>
+    <body class='sapUiBody'>
+        <div id='content'></div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Hello World</title>
+        <script id='sap-ui-bootstrap'
+            src='https://sapui5.hana.ondemand.com/1.104.2/resources/sap-ui-core.js'
+            data-sap-ui-theme='sap_bluecrystal'
+            data-sap-ui-libs='sap.m'>
+        </script>
+        <script>
+            sap.ui.getCore().attachInit(function () {
+                var onPressImage=function(oEvent){
+                    // //retrieves a reference to the control that fired the event
+                    // var oSrc=oEvent.getSource();
+                    // // Then we can ask for its ID
+                    // var sId=oSrc.getId();
+                    var sId=oEvent.getSource().getId();
+                    if (sId==="Image1"){
+                        alert("Hello UI5World image 1!");
+                    } else{
+                        alert("Hello UI5World image 2!");
+                    }
+                };
+                var oImage = new sap.m.Image("Image1",{
+                    src: "img/UI5_logo.png",
+                    decorative: false,
+                    alt: "SAPUI5 Logo",
+                    press: onPressImage
+                }).placeAt("content");
+                var oImage2 = new sap.m.Image("Image2",{
+                    src: "img/UI5_logo.png",
+                    decorative: false,
+                    alt: "SAPUI5 Logo",
+                    press: onPressImage
+                }).placeAt("content");
+            });
+        </script>
+    </head>
+    <body class='sapUiBody'>
+        <div id='content'></div>
+    </body>
+</html>
