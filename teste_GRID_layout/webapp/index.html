@@ -58,7 +58,12 @@
 
                 //instantiating a label with an ID and a text property
                 var oLabel = new sap.m.Label("rgbLabel",{
-                    text: "Qual botao voce gosta mais?"
+                    text: "Qual botao voce gosta mais?",
+                    //aqui configura quantas colunas o GRID tera para
+                    //varios tipos de tela XL,L, M, S
+                    layoutData: new sap.ui.layout.GridData({
+                        span: 'XL12 L12 M12 S12'
+                    })
                 }).placeAt("content");
 
                 //Instantiate the Radio Buttons
@@ -73,6 +78,11 @@
                 //number of columns
                 var oRadioButtonGroup = new sap.m.RadioButtonGroup({
                     columns: 2,
+                    //aqui configura quantas colunas o GRID tera para
+                    //varios tipos de tela XL,L, M, S
+                    layoutData: new sap.ui.layout.GridData({
+                        span: 'XL12 L12 M12 S12'
+                    }),
                     ariaLabelledBy: oLabel //Usando ariaLabelledBy
                 });
 
@@ -89,7 +99,12 @@
 
                 //instantiating a label with an ID and a text property
                 var oLabel2 = new sap.m.Label("rgbLabel2",{
-                    text: "Voce fala JavaScript?"
+                    text: "Voce fala JavaScript?",
+                    //aqui configura quantas colunas o GRID tera para
+                    //varios tipos de tela XL,L, M, S
+                    layoutData: new sap.ui.layout.GridData({
+                        span: 'XL12 L12 M12 S12'
+                    }),
                 }).placeAt("content");
 
                 //Instantiate the Radio Buttons
@@ -103,7 +118,12 @@
                 //Instantiate RadioButtonGroup with one attribute specifying the
                 //number of columns
                 var oRadioButtonGroup2 = new sap.m.RadioButtonGroup({
-                    columns: 2
+                    columns: 2,
+                    //aqui configura quantas colunas o GRID tera para
+                    //varios tipos de tela XL,L, M, S
+                    layoutData: new sap.ui.layout.GridData({
+                        span: 'XL12 L12 M12 S1'
+                    })
                 });
 
                 //add the RadioButtons to the Button aggregation of the group
