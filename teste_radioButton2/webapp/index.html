@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Hello World</title>
+
+        <script id='sap-ui-bootstrap'
+            src='https://sapui5.hana.ondemand.com/1.104.2/resources/sap-ui-core.js'
+            data-sap-ui-theme='sap_bluecrystal'
+            data-sap-ui-libs='sap.m'>
+        </script>
+
+        <script>
+            sap.ui.getCore().attachInit(function () {
+
+                //--------------------------------------------------------------
+                // Imagens (logos UI5)
+                //--------------------------------------------------------------
+                
+                //Function onPressImage
+                var onPressImage=function(oEvent){
+                    // //retrieves a reference to the control that fired the event
+                    // var oSrc=oEvent.getSource();
+                    // // Then we can ask for its ID
+                    // var sId=oSrc.getId();
+                    var sId=oEvent.getSource().getId();
+                    if (sId==="Image1"){
+                        alert("Hello UI5World image 1!");
+                    } else{
+                        alert("Hello UI5World image 2!");
+                    }
+                };
+
+                //imagem 1
+                var oImage = new sap.m.Image("Image1",{
+                    src: "img/UI5_logo.png",
+                    decorative: false,
+                    alt: "SAPUI5 Logo",
+                    //press: onPressImage
+                }).placeAt("content");
+
+                //evento onTap
+                oImage.ontap = function(oEvent) {
+                    alert("Hello UI5 Button 01!");
+                }
+
+                //imagem 2
+                var oImage2 = new sap.m.Image("Image2",{
+                    src: "img/UI5_logo.png",
+                    decorative: false,
+                    alt: "SAPUI5 Logo",
+                    press: onPressImage
+                }).placeAt("content");
+
+                //--------------------------------------------------------------
+                //RadioButtons 1
+                //--------------------------------------------------------------
+
+                //instantiating a label with an ID and a text property
+                var oLabel = new sap.m.Label("rgbLabel",{
+                    text: "Qual botao voce gosta mais?"
+                }).placeAt("content");
+
+                //Instantiate the Radio Buttons
+                var oRadioButton = new sap.m.RadioButton({
+                    text: "Logo Esquerdo"
+                });
+                var oRadioButton2 = new sap.m.RadioButton({
+                    text: "Logo Direito"
+                });
+
+                //Instantiate RadioButtonGroup with one attribute specifying the
+                //number of columns
+                var oRadioButtonGroup = new sap.m.RadioButtonGroup({
+                    columns: 2,
+                    ariaLabelledBy: oLabel //Usando ariaLabelledBy
+                });
+
+                //add the RadioButtons to the Button aggregation of the group
+                oRadioButtonGroup.addButton(oRadioButton);
+                oRadioButtonGroup.addButton(oRadioButton2);
+
+                //display the grioup on screen
+                oRadioButtonGroup.placeAt("content");
+
+                //--------------------------------------------------------------
+                //RadioButtons 2
+                //--------------------------------------------------------------
+
+                new sap.m.Label("rbg2Label", {
+                    text: "Do you speak JavaScript???"
+                }).placeAt("content");
+
+                new sap.m.RadioButtonGroup({
+                columns: 2,
+                buttons: [
+                    new sap.m.RadioButton({
+                        text: "Yes"
+                    }),
+                    new sap.m.RadioButton({
+                        text: "No"
+                    }),
+                ],
+                ariaLabelledBy: "rbg2Label" //usando ariaLabelledBy association
+                }).placeAt("content")
+            });
+        </script>
+    </head>
+    <body class='sapUiBody'>
+        <div id='content'></div>
+    </body>
+</html>
