@@ -1,4 +1,4 @@
-StereoPannerNode.ui.define([
+sap.ui.define([
     //REQUIRES:
     // declaring modules in here,
     // which are loaded asynchronously to solve its dependencies 

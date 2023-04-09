@@ -22,21 +22,21 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master",{ //attention: sapui5.demo.mvcapp
         var oTemplate = new sap.m.ColumnListItem({
             type: "Navigation",
             cells: [
-            new sap.m.ObjectIdentifier({
-                text: "{ID}"
-            }),
-            new sap.m.ObjectIdentifier({
-                text: "{Name}"
-            })
+                new sap.m.ObjectIdentifier({
+                    text: "{ID}"
+                }),
+                new sap.m.ObjectIdentifier({
+                    text: "{Name}"
+                })
             ]
         });
 
         // 5-HEADER in the header, we are displaying the number of suppliers
         var oTableHeader = new sap.m.Toolbar({
             content: [
-            new sap.m.Title({
-                text: "Number of suppliers {/CountSuppliers}"
-            })
+                new sap.m.Title({
+                    text: "Number of suppliers {/CountSuppliers}"
+                })
             ]
         });
 
@@ -49,6 +49,7 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master",{ //attention: sapui5.demo.mvcapp
         // 7-BIND we bind the table items to the /Suppliers entries
         // and to the template
         oTable.bindItems("/Suppliers", oTemplate);
+        oTable.addStyleClass("sapUiResponsiveMargin");
 
         // 8-PAGE
         // var oPageMaster = new sap.m.Page("masterPage",{
@@ -56,12 +57,6 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master",{ //attention: sapui5.demo.mvcapp
             title: "Supplier Overview",
             content: [oTable]
         });
-
-        var oApp = new sap.m.App("myApp");
-
-        oApp.addPage(oPageMaster);
-
-        oApp.placeAt("content");
 
         return oPageMaster; //new line here, comparing to mvc-v1 example...
     }
