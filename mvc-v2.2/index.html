@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Simple MVC Example One Page</title>
+  <script 
+    id="sap-ui-bootstrap"
+    src="https://sapui5.hana.ondemand.com/1.104.2/resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_bluecrystal"
+    data-sap-ui-preload="async"
+    data-sap-ui-compatVersion="edge"
+    data-sap-ui-xx-bindingSyntax="complex"
+    data-sap-ui-resourceroots='{"sapui5.demo.mvcapp": "./webapp/"}'
+    >
+  </script>
+  <script>
+    // Pass a function as an argument to attachInit
+    sap.ui.getCore().attachInit(() => sap.ui.require([
+      // Require modules instead of using global references
+      "sap/ui/model/json/JSONModel",
+      // ...
+    ], (JSONModel/*, ...*/) => {
+
+      var oData = {
+        "CountSuppliers": "2",
+        "Suppliers": [
+          {
+            "ID": 0,
+            "Name": "Exotic Liquids",
+            "Address": {
+              "Street": "NE 228th",
+              "City": "Sammamish",
+              "State": "WA",
+              "ZipCode": "98074",
+              "Country": "USA"
+            }
+          },
+          {
+            "ID": 1,
+            "Name": "Tokyo Traders",
+            "Address": {
+              "Street": "NE 40th",
+              "City": "Redmond",
+              "State": "WA",
+              "ZipCode": "98052",
+              "Country": "USA"
+            }
+          }
+        ]
+      };
+
+      var oModel = new sap.ui.model.json.JSONModel();
+      oModel.setData(oData);
+      
+      sap.ui.getCore().setModel(oModel);
+      
+      var oPageMasterView = sap.ui.view("masterPage",
+      { type: sap.ui.core.mvc.ViewType.JS,
+        viewName: "sapui5.demo.mvcapp.view.Master",
+      });
+      
+      var oApp = new sap.m.App({
+        initialPage:"masterPage"
+      });
+      oApp.addPage(oPageMasterView);
+      oApp.placeAt("content");
+
+    }));
+
+  </script>
+</head>
+
+<body class="sapUiBody sapUiResponsiveMargin" id="content" role="application">
+  <div id="content"></div>
+</body>
+
+</html>
