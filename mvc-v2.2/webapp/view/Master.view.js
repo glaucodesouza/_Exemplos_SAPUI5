@@ -1,11 +1,13 @@
 sap.ui.jsview("sapui5.demo.mvcapp.view.Master",{ //attention: sapui5.demo.mvcapp is the namespace for webapp folder, not the complete file path...
+
     getControllerName: function(){
         return "sapui5.demo.mvcapp.controller.Master";
     },
+
     createContent: function(oController){
         //here we will create our UI via JS Coding...
         // 3-TABLE COLUMNS the columns will act as column readers
-        var aColums = [
+        var aColumns = [
             new sap.m.Column({
             header : new sap.m.Text({
                 text : "ID"
@@ -21,6 +23,7 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master",{ //attention: sapui5.demo.mvcapp
         // 4-TEMPLATE in the Template, we will display the supplier information
         var oTemplate = new sap.m.ColumnListItem({
             type: "Navigation",
+            press: [oController.onListPress, oController],
             cells: [
                 new sap.m.ObjectIdentifier({
                     text: "{ID}"
@@ -42,7 +45,7 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Master",{ //attention: sapui5.demo.mvcapp
 
         // 6-TABLE we create the table with the columns and header
         var oTable = new sap.m.Table({
-            columns: aColums,
+            columns: aColumns,
             headerToolbar: oTableHeader
         });
 

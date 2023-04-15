@@ -3,27 +3,21 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Simple MVC Example One Page</title>
+  <title>Simple MVC Example Master Object Page</title>
   <script 
     id="sap-ui-bootstrap"
-    src="https://sapui5.hana.ondemand.com/1.104.2/resources/sap-ui-core.js"
+    src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js"
     data-sap-ui-libs="sap.m"
+    sata-sap-ui-model="sap-model"
     data-sap-ui-theme="sap_bluecrystal"
-    data-sap-ui-preload="async"
     data-sap-ui-compatVersion="edge"
     data-sap-ui-xx-bindingSyntax="complex"
     data-sap-ui-resourceroots='{"sapui5.demo.mvcapp": "./webapp/"}'
     >
   </script>
   <script>
-    // Pass a function as an argument to attachInit
-    sap.ui.getCore().attachInit(() => sap.ui.require([
-      // Require modules instead of using global references
-      "sap/ui/model/json/JSONModel",
-      // ...
-    ], (JSONModel/*, ...*/) => {
 
-      var oData = {
+    var oData = {
         "CountSuppliers": "2",
         "Suppliers": [
           {
@@ -56,23 +50,27 @@
       
       sap.ui.getCore().setModel(oModel);
       
-      var oPageMasterView = sap.ui.view("masterPage",
+      var oPageMaster = sap.ui.view("masterPage",
       { type: sap.ui.core.mvc.ViewType.JS,
         viewName: "sapui5.demo.mvcapp.view.Master",
       });
       
+      var oPageDetail = sap.ui.view("detailPage",
+      { type: sap.ui.core.mvc.ViewType.JS,
+        viewName: "sapui5.demo.mvcapp.view.Detail",
+      });
+
       var oApp = new sap.m.App({
         initialPage:"masterPage"
       });
-      oApp.addPage(oPageMasterView);
-      oApp.placeAt("content");
 
-    }));
+      oApp.addPage(oPageMaster).addPage(oPageDetail);
+      oApp.placeAt("content");
 
   </script>
 </head>
 
-<body class="sapUiBody sapUiResponsiveMargin" id="content" role="application">
+<body class="sapUiBody" role="application">
   <div id="content"></div>
 </body>
 

@@ -4,7 +4,7 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Detail",{ //attention: sapui5.demo.mvcapp
     },
     createContent: function(oController){
 
-        var oObjectHeader = new sap.m.oObjectHeader({
+        var oObjectHeader = new sap.m.ObjectHeader({
             title: "{Name}",
             number: "ID: {ID}",
             attributes: [
@@ -21,6 +21,6 @@ sap.ui.jsview("sapui5.demo.mvcapp.view.Detail",{ //attention: sapui5.demo.mvcapp
             content: [oObjectHeader]
         });
 
-        return oPageMaster;
+        return oPageDetail;
     }
 });
