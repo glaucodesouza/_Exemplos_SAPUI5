@@ -15,7 +15,11 @@ sap.ui.define([
     return Controller.extend("sapui5.demo.mvcapp.controller.Master",{
 
         onListPress: function(oEvent){
-            var sPageId = "detailPage";
+            debugger;
+            // var sPageId = "detailPage"; //hard coded
+            //GET PAGE ID dynamically
+            var sPageId = oApp.getPages()[1].getId();
+
             oApp.to(sPageId);
 
             var oPage = oApp.getPage(sPageId);
