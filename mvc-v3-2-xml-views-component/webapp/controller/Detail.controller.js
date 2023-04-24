@@ -5,7 +5,7 @@ sap.ui.define([
 
     return Controller.extend("sapui5.demo.mvcapp.controller.Detail", {
         onNavPress: function () {
-            oApp.back(); //oApp is a global variable declared in index.html inside script tag.
+            oApp.back(); //oApp foi declarado no index.html como variável global.
         }
     });
 });
