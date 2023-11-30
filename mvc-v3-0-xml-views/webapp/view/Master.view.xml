@@ -1,7 +1,7 @@
 <mvc:View
     controllerName="sapui5.demo.mvcapp.controller.Master"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m">
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m">
 	<Page
 		title="Supplier Overview">
 		<content>
@@ -10,7 +10,7 @@
 				<headerToolbar>
 					<Toolbar>
 						<Title
-                text="Number of Suppliers: {/CountSuppliers}"/>
+                            text="Number of Suppliers: {/CountSuppliers}"/>
 					</Toolbar>
 				</headerToolbar>
 				<columns>
