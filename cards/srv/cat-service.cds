@@ -436,13 +436,6 @@ service CatalogService {
     contador : Integer;
     registros : array of type_inbound_validacao
   };
-  // function selectValidacao2 ()  returns array of type_inbound_validacao;
-  // function selectValidacao3 ()  returns array of type_inbound_validacao;
-  // function selectValidacao4 ()  returns array of type_inbound_validacao;
-  // function selectValidacao5 ()  returns array of type_inbound_validacao;
-  // function selectValidacao6 ()  returns array of type_inbound_validacao;
-  // function selectValidacao7 ()  returns array of type_inbound_validacao;
-  // function selectValidacao8 ()  returns array of type_inbound_validacao;
 
   function selectCountInbound()                                                          returns Integer;
 
