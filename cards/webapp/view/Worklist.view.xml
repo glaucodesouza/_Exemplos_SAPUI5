@@ -5,125 +5,54 @@
     xmlns:f="sap.f"
     xmlns:layout="sap.ui.layout"
     height="100%">
-    <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+    <f:DynamicPage id="dynamicPageId" 
+        class="sapUiNoContentPadding">
         <!-- DynamicPage Title -->
+        
         <f:title>
             <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
                 <f:heading>
                     <Title id="_IDGenTitle1" text="Validações de Carga AT"/>
                 </f:heading>
+                <f:actions>
+                    <Button id="_IDGencvButton1" 
+                            type="Emphasized" 
+                            text="Validar" 
+                            press="onValidarButtonClick" />
+                            
+                </f:actions>
             </f:DynamicPageTitle>
         </f:title>
         <!-- DynamicPage Header -->
         <f:header>
-            <f:DynamicPageHeader id="_IDGenDynamicPageHeader1" pinnable="true">
-                <Button id="_IDGencvButton1" type="Accept" text="Validar" press="onValidarButtonClick" />
-            </f:DynamicPageHeader>
+            <f:DynamicPageHeader id="_IDGenDynamicPageHeader1" pinnable="true" >
+                <Text id="_IDGenText3" text="{modelWorklist>/textoQtdeRegsInbound}"/>
+            </f:DynamicPageHeader>    
         </f:header>
         <f:content>
-
-            <FlexBox
-				direction="Column"
-                alignItems="Center"
-                class="sapUiSmallMargin">
-                <FlexBox
-                    alignItems="Center"
-                    justifyContent="Center"
-                    alignContent="SpaceBetween"
-                    wrap="Wrap">
-                    <!-- Validação 1 -->
-                    <f:Card id="_IDGenCard1b" width="45rem" height="35px" class="sapUiSmallMargin">
-                        <f:content>
-                            <VBox id="_IDGenVBox1b" width="100%" >
-                                <HBox >
-                                    <Text id="_IDGenText1" text=" {modelValidacao1>/tipoValidacaoCod}" /> 
-                                    <Text id="_IDGenText5" text="-{modelValidacao1>/tipoValidacaoDesc}" onPress = ''/> 
-                                    <core:Icon id="_IDGenIcon1"
-                                        src="{= ${modelValidacao1>/statusValido} === '' ? '' : ${modelValidacao1>/statusValido} === 'Sucesso' ? 'sap-icon://message-success' : 'sap-icon://message-error' }"
-                                        class="size1"
-                                        color="{= ${modelValidacao1>/statusValido} === '' ? '#FFFFFF' : ${modelValidacao1>/statusValido} === 'Sucesso' ? '#00FF00' : '#FF0000' }" > 
-                                        <!-- "#031E48" > -->
-                                    </core:Icon>
-                                </HBox>
-                            </VBox>
-                        </f:content>
-                    </f:Card>
-
-                    <!-- Validação 2 -->
-                    <f:Card  width="45rem" height="35px" class="sapUiSmallMargin">
-                        <f:content>
-                            <VBox width="100%" >
-                                <HBox >
-                                    <Text  text=" 2" /> 
-                                    <Text  text="-Verificar se tem registro sem Grupo de Mercadoria" /> 
-                                    <core:Icon id="_IDGenIcon2"
-                                        src="{= ${modelValidacao1>/statusValido} === '' ? '' : 'sap-icon://message-success' }"
-                                        class="size1"
-                                        color="{= ${modelValidacao1>/statusValido} === '' ? '#FFFFFF' : '#00FF00' }" > 
-                                        <!-- "#031E48" > -->
-                                    </core:Icon>
-                                </HBox>
-                            </VBox>
-                        </f:content>
-                    </f:Card>
-
-                    <!-- Validação 3 -->
-                    <f:Card  width="45rem" height="35px" class="sapUiSmallMargin">
-                        <f:content>
-                            <VBox width="100%" >
-                                <HBox >
-                                    <Text  text=" 3" /> 
-                                    <Text  text="-Verificar se tem registro sem Descrição do NM" /> 
-                                    <core:Icon
-                                        src="{= ${modelValidacao1>/statusValido} === '' ? '' : 'sap-icon://message-success' }"
-                                        class="size1"
-                                        color="{= ${modelValidacao1>/statusValido} === '' ? '#FFFFFF' : '#00FF00' }" > 
-                                        <!-- "#031E48" > -->
-                                    </core:Icon>
-                                </HBox>
-                            </VBox>
-                        </f:content>
-                    </f:Card>
-
-                    <!-- Validação 4 -->
-                    <f:Card  width="45rem" height="35px" class="sapUiSmallMargin">
-                        <f:content>
-                            <VBox width="100%" >
-                                <HBox >
-                                    <Text  text=" 4" /> 
-                                    <Text  text="-Verificar se tem registro com DOCNUM  e sem ITMNUM" /> 
-                                    <core:Icon
-                                        src="{= ${modelValidacao1>/statusValido} === '' ? '' : 'sap-icon://message-success' }"
-                                        class="size1"
-                                        color="{= ${modelValidacao1>/statusValido} === '' ? '#FFFFFF' : '#00FF00' }" > 
-                                        <!-- "#031E48" > -->
-                                    </core:Icon>
-                                </HBox>
-                            </VBox>
-                        </f:content>
-                    </f:Card>
-
-                    <!-- Validação 5 -->
-                    <f:Card  width="45rem" height="35px" class="sapUiSmallMargin">
-                        <f:content>
-                            <VBox width="100%" >
-                                <HBox >
-                                    <Text  text=" 5" /> 
-                                    <Text  text="-Verificar se tem registro sem DOCNUM  e com ITMNUM" /> 
-                                    <core:Icon
-                                        src="{= ${modelValidacao1>/statusValido} === '' ? '' : 'sap-icon://message-success' }"
-                                        class="size1"
-                                        color="{= ${modelValidacao1>/statusValido} === '' ? '#FFFFFF' : '#00FF00' }" > 
-                                        <!-- "#031E48" > -->
-                                    </core:Icon>
-                                </HBox>
-                            </VBox>
-                        </f:content>
-                    </f:Card>
-
-                </FlexBox>
-            </FlexBox>
-
+        
+		    <layout:VerticalLayout id="_IDGenVerticalLayout1"
+				width="100%"
+				class="sapUiSmallMarginTop">
+                <layout:Grid id="_IDGenGrid1" content="{modelValidacoesWorklist>/}" vSpacing="0.5" defaultSpan="XL12 L12 M12 S12">
+                    <VBox id="_IDGenVBox1" width="100%" height="50px">
+                        <f:Card id="_IDGenCard" width="100%" height="50px" >
+                            <f:content>
+                                <VBox id="_IDGenVBox" width="100%" >
+                                    <HBox id="_IDGenHBox1" >
+                                        <Link id="_IDGenText2" class="Texto" text="{modelValidacoesWorklist>tipoValidacaoCod}-{modelValidacoesWorklist>tipoValidacaoDesc}, ({modelValidacoesWorklist>contador} registros)" press='onValidacaoWorklistClick'/> 
+                                        <core:Icon id="_IDGenIcon"
+                                            src="{= ${modelValidacoesWorklist>statusValido} === '' ? '' : ${modelValidacoesWorklist>statusValido} === 'Sucesso' ? 'sap-icon://message-success' : 'sap-icon://message-error' }"
+                                            class="size2"
+                                            color="{= ${modelValidacoesWorklist>statusValido} === '' ? '#FFFFFF' : ${modelValidacoesWorklist>statusValido} === 'Sucesso' ? '#00FF00' : '#FF0000' }" > 
+                                        </core:Icon>
+                                    </HBox>
+                                </VBox>
+                            </f:content>
+                        </f:Card>
+                    </VBox>
+                </layout:Grid>
+            </layout:VerticalLayout>
         </f:content>
     </f:DynamicPage>
 </mvc:View>

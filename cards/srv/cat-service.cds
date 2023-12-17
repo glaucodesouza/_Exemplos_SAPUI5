@@ -397,7 +397,55 @@ service CatalogService {
   function selectOutliersChart3A(dtFiltroInicial : String, dtFiltroFinal : String)       returns array of outliersChart3A; //OUTLIERS;
   function selectOutliersChart3B(dtFiltroInicial : String, dtFiltroFinal : String)       returns array of outliersChart3B; //OUTLIERS;
 
-  function selectValidacao1()                                                            returns validacao1;
+  function selectValidacao1()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao2()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao3()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao4()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao5()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao6()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao7()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+
+  function selectValidacao8()                                                            returns {
+    contador : Integer;
+    registros : array of type_inbound_validacao
+  };
+  // function selectValidacao2 ()  returns array of type_inbound_validacao;
+  // function selectValidacao3 ()  returns array of type_inbound_validacao;
+  // function selectValidacao4 ()  returns array of type_inbound_validacao;
+  // function selectValidacao5 ()  returns array of type_inbound_validacao;
+  // function selectValidacao6 ()  returns array of type_inbound_validacao;
+  // function selectValidacao7 ()  returns array of type_inbound_validacao;
+  // function selectValidacao8 ()  returns array of type_inbound_validacao;
+
+  function selectCountInbound()                                                          returns Integer;
+
 }
 
 type TypeProcessFlowLane {
@@ -485,6 +533,141 @@ type outliersChart3B {
   count        : Integer;
 }
 
-type validacao1 {
-  count : Integer;
+// type validacao1 {
+//     count: Integer;
+// }
+
+type type_inbound_validacao {
+  ID                     : String(36);
+  po                     : String(10); // Ebeln
+  poItem                 : Integer; // Ebelp
+  docNum                 : String(10);
+  docItem                : Integer; // Itmnum
+  gjahr                  : Integer;
+  belnr                  : String(10); // Belnr //não é mais ACCDOC
+  buzei                  : Integer; // Buzei
+  cpuDt                  : Timestamp;
+  cpuTm                  : Timestamp;
+  serialNo               : String(18);
+  batch                  : String(10); // LOTE
+  nm                     : String(40); // Matnr
+  nmDescription          : String(120); // Maktx
+  nmDescrAlternative     : String(120); //NfMaktx >> alternativo para descrição
+  isNmAlternative        : Boolean; //Nesserio para app Node - FerFranco
+  docType                : String(4); // Bsart
+  docTypeCode            : String(5);
+  docTypeDescr           : String(40);
+  tpMov                  : String(4); // Bwart
+  fatDoc                 : String(10);
+  nfType                 : String(2); // Categoria de Nota fiscal
+  matDoc                 : String(10);
+  matDocItem             : String(4);
+  matDocYear             : String(4);
+  matUse                 : String(1);
+  matOrg                 : String(1);
+  matOrgTxt              : String(120);
+  quantityMov            : Decimal(13, 3); // MengeEkbe
+  quantityPo             : Decimal(13, 3); // MengeEkpo
+  quantityUnit           : String(3); // Meins
+  Occode                 : String(16);
+  ocType                 : String(16);
+  ocdescr                : String(24);
+  ciapId                 : String(60); // IdCiap
+  ciapBx                 : String(2); // CiapStatus
+  ciapBxText             : String(60); // CiapStatusTxt
+  assetTypeCode          : String(5);
+  assetTypeDescr         : String(40);
+  isRsped                : Boolean; //Rsped
+  bukrs                  : String(4); // Empresa
+  werks                  : String(4); //Centro
+  zekkn                  : Integer;
+  vgabe                  : String(1);
+  bewtp                  : String(1);
+  bstyp                  : String(1);
+  bwtar                  : String(10); // Tipo de avaliação >> Fiori
+  knttp                  : String(1); // Categoria Classificação contabil
+  gm                     : String(9); // Matkl
+  xchpf                  : String(1);
+  ps_psp_pnr             : Integer;
+  kstrg                  : String(12);
+  aufnr                  : String(12);
+  nplnr                  : String(12);
+  branch                 : String(4);
+  diNo                   : String(20); // Ndi
+  diDate                 : Timestamp; // Ddi
+  retirementOperation    : String(2);
+  retirementOperationTxt : String(60);
+  manual                 : Boolean;
+  direct                 : String(1);
+  printD                 : Boolean;
+  user                   : String(12); // Ernam
+  cancelado              : Boolean;
+  oriCancDocNum          : String(10);
+  oriCancDocItem         : Integer;
+  bloqueado              : Boolean;
+  status                 : String(120);
+  outlierDescr           : String(255);
+  outlier                : Boolean;
+  FatdocYear             : String(4);
+  FatdocItem             : String(4);
+  Accdoc                 : String(10);
+  AccdocGjahr            : String(4);
+  Vornr                  : String(4);
+  DocCasado              : Boolean;
+  cancelDoc              : Boolean;
+  reftyp                 : String(2);
+  refkey                 : String(35);
+  pstyp                  : String(1);
+  fkart                  : String(4);
+  cfop                   : String(10);
+  parvw                  : String(2);
+  fatEbeln               : String(10);
+  fatEbelp               : String(5);
+  fatZekkn               : String(2);
+  fatVgabe               : String(1);
+  fatBewtp               : String(1);
+  fatBwart               : String(3);
+  fatCpudt               : Timestamp;
+  fatCputm               : Timestamp;
+  fatWerks               : String(4);
+  fatQuantity            : Decimal(13, 3);
+  BranchDest             : String(4);
+  WerksDest              : String(4);
+  OccodeDes              : String(12);
+  OctypeDest             : String(16);
+  OcdescrDest            : String(24);
+  Parid                  : String(10);
+  Lgort                  : String(4);
+  LgortDest              : String(4);
+  OccodeDest             : String(16);
+  nfQuantity             : Decimal(13, 3); //NfMenge
+  nfQuantityUnit         : String(3); //NfMeins
+  Sobkz                  : String(1);
+  Umsok                  : String(1);
+  ParentId               : String(6);
+  Werksorigem            : String(4);
+  Branchorigem           : String(4);
+  KostlMseg              : String(10);
+  KostlEkkn              : String(10);
+  SaktoEkpo              : String(10);
+  SaktoEkkn              : String(10);
+  SaktoMseg              : String(10); // (SAP)Classe de custo //Numero conta Razao // SAKNR
+  VornrMseg              : String(4);
+  docRef                 : String(10);
+  itmRef                 : Integer; // ItmRef
+  umMat                  : String(40);
+  origem_dados           : String(44);
+  posLat                 : Decimal(16, 12); // exemplo de valor 123,123456789012
+  posLong                : Decimal(16, 12); // exemplo de valor 123,123456789012
+  Mwskz_ped              : String(2); // é o Tax Code do Pedido de Compras
+  Mwskz_mat              : String(2); // é o Tax Code de Doc de Materiais
+  Mwskz_fat              : String(2); // é o Tax Code de Doc de Fatura
+  Mwskz_nf               : String(2); // é o Tax Code de NF
+  Anln1                  : String(12); //Imobilizado
+  Anln2                  : String(4); //Subnúm. do Imobilizado
+  Erfmg                  : Decimal(13, 3); //Quantidade do Registro
+  Erfme                  : String(3); //Unidade de medida do Registro
+
+  tipoValidacaoCod       : Integer; //1 até 8
+  tipoValidacaoDesc      : String(150); //Descrição do tipo de validação
 }
