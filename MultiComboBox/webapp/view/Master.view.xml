@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="sapui5.demo.mvcapp.controller.Master"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m">
+	<Page
+		title="Cadastro Overview">
+		<content>
+			<Table
+				items="{/Cadastros}">
+				<headerToolbar>
+					<Toolbar>
+						<Title
+                text="Quantidade de Cadastrados: {/CountCadastros}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column><header>
+						<Text text="ID"/></header>
+					</Column>
+					<Column><header>
+						<Text text="Grupo"/></header>
+					</Column>
+				</columns>
+        
+				<items>
+					<ColumnListItem type="Navigation" press="onListPress">
+						<cells>
+							<ObjectIdentifier text="{ID}"/>
+							<ObjectIdentifier text="{Grupo}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

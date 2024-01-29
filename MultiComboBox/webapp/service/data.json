@@ -1,0 +1,21 @@
+{
+  "CountCadastros": "1",
+  "CountGroups": "2",
+  "Cadastros": [
+    {
+      "ID": 0,
+      "Nome": "Test cadastro",
+      "Grupo": "teste GRP1; teste GRP2"
+    }
+  ],
+  "Grupos": [
+    {
+      "ID": 0,
+      "Description": "teste GRP1"
+    },
+    {
+      "ID": 1,
+      "Description": "teste GRP2"
+    }
+  ]
+}
