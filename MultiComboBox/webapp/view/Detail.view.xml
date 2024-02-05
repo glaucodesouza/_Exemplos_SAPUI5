@@ -2,19 +2,72 @@
     controllerName="sapui5.demo.mvcapp.controller.Detail" 
     xmlns:mvc="sap.ui.core.mvc" 
 		xmlns="sap.m"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
 		id="detailPageFixedID">
 	<Page navButtonPress="onNavPress" 
 				showNavButton="true" 
 				title="Detalhe do Cadastro">
 		<content>
-			<ObjectHeader number="ID: {ID}" title="{Nome}">
+			<!-- <ObjectHeader number="ID: {ID}" title="{Nome}">
 				<attributes>
 					<ObjectAttribute text="{Nome}">
 						
 						</ObjectAttribute>
 					</attributes>
 				
-			</ObjectHeader>
+			</ObjectHeader> -->
+		
+			<f:SimpleForm id="_IDGenSimpleForm1"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					title=""
+					labelSpanXL="1"
+					labelSpanL="1"
+					labelSpanM="1"
+					labelSpanS="1"
+					adjustLabelSpan="true"
+					emptySpanXL="2"
+					emptySpanL="2"
+					emptySpanM="2"
+					emptySpanS="2"
+					columnsXL="12"
+					columnsL="12"
+					columnsM="12"
+					singleContainerFullSize="true"
+					>
+					<f:content>
+					<l:VerticalLayout id="_IDGenVerticalLayout1"
+							width="100%">
+
+
+							<Label id="_IDGenLabel2"    text="Descrição" />
+							<Input id="inpDescricao"    value="{ID}" editable="true"/>
+
+							<Label id="_IDGenLabel931"  text="Grupos de Operações" />
+							<MultiComboBox id="_IDMultiInputAux"
+									editable="{objectView>/editMode}"
+									selectionChange="handleSelectionChange"
+									selectionFinish="handleSelectionFinish"
+									width="350px"
+									items="{
+											path: '/Grupos',
+											sorter: { path: 'ID' }
+									}">
+									<core:Item id="_IDGenItem1" key="{Grupo}" text="{Nome}"/>
+							</MultiComboBox>
+
+							<!-- CAMPO invisivel
+									tem o valor sempre espelhado pelo MultiComboBox acima -->
+							<Label id="_IDGenLabel6"          text="Grupos de Operações"    visible="false"/>
+							<Input id="_IDMultiInputOriginal" value="{GrupoOperacao}"       visible="false" editable="{objectView>/editMode}"/>
+
+
+					</l:VerticalLayout>
+
+					</f:content>
+			</f:SimpleForm>
 		</content>
 	</Page>
 </mvc:View>
