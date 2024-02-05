@@ -18,6 +18,8 @@
 					</attributes>
 				
 			</ObjectHeader> -->
+
+			<Button id="_IDGenButton1" type="Transparent" text="Gravar" press="onGravar"/>
 		
 			<f:SimpleForm id="_IDGenSimpleForm1"
 					editable="false"
@@ -47,7 +49,7 @@
 
 							<Label id="_IDGenLabel931"  text="Grupos de Operações" />
 							<MultiComboBox id="_IDMultiInputAux"
-									editable="{objectView>/editMode}"
+									editable="true"
 									selectionChange="handleSelectionChange"
 									selectionFinish="handleSelectionFinish"
 									width="350px"
@@ -55,14 +57,15 @@
 											path: '/Grupos',
 											sorter: { path: 'ID' }
 									}">
-									<core:Item id="_IDGenItem1" key="{Grupo}" text="{Nome}"/>
+									<core:Item id="_IDGenItem1" key="{Description}" text="{Description}"/>
 							</MultiComboBox>
 
 							<!-- CAMPO invisivel
 									tem o valor sempre espelhado pelo MultiComboBox acima -->
-							<Label id="_IDGenLabel6"          text="Grupos de Operações"    visible="false"/>
-							<Input id="_IDMultiInputOriginal" value="{GrupoOperacao}"       visible="false" editable="{objectView>/editMode}"/>
-
+							<Label id="_IDGenLabel60"          text="Este campo terá o valor concatenado do MultiComboBox"    visible="true"/>
+							<Label id="_IDGenLabel61"          text="é este campo que guardará o valor concatenados, verdadeiramente na tabela"    visible="true"/>
+							<Label id="_IDGenLabel62"          text="ao clicar em Gravar"    visible="true"/>
+							<Input id="_IDMultiInputInvisivel" value="{Grupo}"       visible="true" editable="true"/>
 
 					</l:VerticalLayout>
 
