@@ -8,8 +8,6 @@ It only works in a browser with CORS disabled (for testing purposes).
 
 -1-Click right button on Chrome icon
 
--2-Put this line in properties/Destination:
+-2-Put this line in properties/Destination: "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp
 
--3-"C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp
-
--4-click on Apply button
+-3-click on Apply button
