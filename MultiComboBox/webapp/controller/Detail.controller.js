@@ -10,24 +10,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
       var modelMultiComboBox = new sap.ui.model.json.JSONModel();
       var listaTodosGruposOperacoesPossiveisLOCAL = [];
       var selected = [];
-
-      // this.getOwnerComponent()
-      //   .getModel()
-      //   .read(`/Cadastros(ID='0')`, {
-      //     success: function (oData) {
-      //       debugger;
-      //     }.bind(this),
-      //     error: (oError) => {
-      //       console.log(oError);
-      //     },
-      //   });
-
-      // let aTodosGruposDoCAMPO = this.byId("_IDMultiInputInvisivel").getValue().split(";");
-      // //retirar espaços
-
-      // for (let j = 0; j < aTodosGruposDoCAMPO.length; j++) {
-      //   aTodosGruposDoCAMPO[j] = aTodosGruposDoCAMPO[j].trim();
-      // }
     },
     onAfterRendering: function () {
       let oData = this.getOwnerComponent().getModel().getData();
@@ -38,52 +20,62 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
         return;
       }
 
-      debugger;
-      // this.byId("_IDMultiInputInvisivel").setValue("");
-
       //----------------------------------------------------
       // Preencher MultiComboBox Auxiliar ()
       // Com os grupos que o usuario preencheu em um momento anterior...
       //----------------------------------------------------
-      var modelMultiComboBox = new sap.ui.model.json.JSONModel();
-      var listaTodosGruposOperacoesPossiveisLOCAL = [];
-      var selected = [];
 
-      let aTodosGruposDoCAMPO = aCadastros.split(";");
+      let aTodosGruposDoModel = "";
+      var modelMultiComboBox = new sap.ui.model.json.JSONModel();
+      var aTodosGruposLOCAL = [];
+      var aSelected = [];
+
+      let aTodosGruposDoCAMPO = aCadastros.Grupo.split(";");
       //retirar espaços
       for (let j = 0; j < aTodosGruposDoCAMPO.length; j++) {
         aTodosGruposDoCAMPO[j] = aTodosGruposDoCAMPO[j].trim();
       }
 
       //----------------------------------------------------
+      // LER TODOS Grp. Possiveis do MODEL...
+      //----------------------------------------------------
+      try {
+        aTodosGruposDoModel = oData.Grupos;
+      } catch (error) {
+        return;
+      }
+
+      //----------------------------------------------------
       // Adicionar Todos os Grupos de Operações possíveis, no MultiComboBox aux...
       //----------------------------------------------------
-      let listaTodosGruposOperacoesPossiveisGLOBAL = "";
-      for (let i = 0; i < listaTodosGruposOperacoesPossiveisGLOBAL.length; i++) {
+      for (let i = 0; i < aTodosGruposDoModel.length; i++) {
         var MedioObj = {
-          GrupoOperacao: listaTodosGruposOperacoesPossiveisGLOBAL[i].Descricao.trim(),
-          Descricao: listaTodosGruposOperacoesPossiveisGLOBAL[i].Descricao.trim(),
+          Description: aTodosGruposDoModel[i].Description.trim(),
         };
 
         // Marcar Grp.Oper. atual como SELECTED no MultiComboBox, CASO ele ja existia no campo
-        let registroEncontrado = listaTodosGrupoOperacoesDoCAMPO.find(
-          (regEncontrado) => regEncontrado == listaTodosGruposOperacoesPossiveisGLOBAL[i].Descricao
-        );
+        let registroEncontrado = aTodosGruposDoCAMPO.find((regEncontrado) => regEncontrado == aTodosGruposDoModel[i].Description);
         //Se existe
         if (!!registroEncontrado) {
           //Adicionar como SELECTED...
-          selected.push(listaTodosGrupoOperacoesDoCAMPO[i].trim());
+          aSelected.push(aTodosGruposDoCAMPO[i].trim());
           //Se não existe
         } else {
           //Não precisa adicionar nos SELECTED...
         }
-        listaTodosGruposOperacoesPossiveisLOCAL.push(MedioObj);
+        aTodosGruposLOCAL.push(MedioObj);
       }
 
       modelMultiComboBox.setData({
-        gruposOperacoes: listaTodosGruposOperacoesPossiveisLOCAL,
-        selected: selected,
+        Grupos: aTodosGruposLOCAL,
+        selected: aSelected,
       });
+
+      let oMultiSelect = this.byId("_IDMultiInputAux");
+
+      oMultiSelect.bindProperty("selectedKeys", "/selected");
+
+      oMultiSelect.setModel(modelMultiComboBox);
     },
     onNavPress: function () {
       oApp.back(); //oApp foi declarado no index.html como variável global.
