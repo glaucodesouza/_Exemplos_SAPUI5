@@ -62,9 +62,11 @@
 
 							<!-- CAMPO invisivel
 									tem o valor sempre espelhado pelo MultiComboBox acima -->
-							<Label id="_IDGenLabel60"          text="Este campo terá o valor concatenado do MultiComboBox"    visible="true"/>
-							<Label id="_IDGenLabel61"          text="é este campo que guardará o valor concatenados, verdadeiramente na tabela"    visible="true"/>
-							<Label id="_IDGenLabel62"          text="ao clicar em Gravar"    visible="true"/>
+							<Label id="_IDGenLabel60"          text=""    visible="true"/>
+							<Label id="_IDGenLabel61"          text="Este campo terá o valor concatenado do MultiComboBox"    visible="true"/>
+							<Label id="_IDGenLabel62"          text="é este campo que guardará o valor concatenados, verdadeiramente na tabela"    visible="true"/>
+							<Label id="_IDGenLabel63"          text="ao clicar em Gravar"    visible="true"/>
+							<Label id="_IDGenLabel64"          text=""    visible="true"/>
 							<Input id="_IDMultiInputInvisivel" value="{Grupo}"       visible="true" editable="true"/>
 
 					</l:VerticalLayout>

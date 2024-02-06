@@ -31,7 +31,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
       var aSelected = [];
 
       let aTodosGruposDoCAMPO = aCadastros.Grupo.split(";");
-      //retirar espaços
+
+      //----------------------------------------------------
+      // Retirar espaços
+      //----------------------------------------------------
       for (let j = 0; j < aTodosGruposDoCAMPO.length; j++) {
         aTodosGruposDoCAMPO[j] = aTodosGruposDoCAMPO[j].trim();
       }
@@ -46,14 +49,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
       }
 
       //----------------------------------------------------
-      // Adicionar Todos os Grupos de Operações possíveis, no MultiComboBox aux...
+      // Preencher objeto com linha atual do Grupo do Model Global
       //----------------------------------------------------
       for (let i = 0; i < aTodosGruposDoModel.length; i++) {
-        var MedioObj = {
+        var oGrupoAtual = {
           Description: aTodosGruposDoModel[i].Description.trim(),
         };
 
-        // Marcar Grp.Oper. atual como SELECTED no MultiComboBox, CASO ele ja existia no campo
+        // Marcar Grp atual como SELECTED no MultiComboBox, CASO ele ja existia no campo original
         let registroEncontrado = aTodosGruposDoCAMPO.find((regEncontrado) => regEncontrado == aTodosGruposDoModel[i].Description);
         //Se existe
         if (!!registroEncontrado) {
@@ -63,7 +66,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function (Controller) {
         } else {
           //Não precisa adicionar nos SELECTED...
         }
-        aTodosGruposLOCAL.push(MedioObj);
+        aTodosGruposLOCAL.push(oGrupoAtual);
       }
 
       modelMultiComboBox.setData({
