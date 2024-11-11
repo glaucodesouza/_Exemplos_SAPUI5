@@ -1,6 +1,9 @@
 //EXAMPLE of sending decimal value to SAP.
-//You must format in javascript for String.
-//See belor field of PESO_ULT_LIDO.
+//-->You must format in javascript for String.
+//See field of PESO_ULT_LIDO BELLOW:
+//
+// Formato deste campo no SAP:
+// PESO_ULT_LIDO	Edm.Decimal	13	3	0
 callCreate: function () {
 
 			// read local auxiliary models
